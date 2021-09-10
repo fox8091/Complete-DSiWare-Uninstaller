@@ -9,23 +9,7 @@
 PrintConsole topScreen, bottomScreen;
 AM_TWLPartitionInfo info;
 #define DUMP_ALL true
-#define SYSTEM_APP_COUNT 6
-static u64 systemApps[SYSTEM_APP_COUNT] = { 
-					 0x00048005484E4441,
-					 0x0004800542383841,
-					 0x0004800F484E4841,
-					 0x0004800F484E4C41,
-					 0x00048005484E4443,
-					 0x00048005484E444B
-};
-bool isBlacklisted(u64 tid) {
-	for (int i =0;i<SYSTEM_APP_COUNT;i++) {
-		if (tid==systemApps[i]) {
-			return true;
-		}
-	}
-	return false;
-}
+
 
 Result uninstall(u64 tid){
 	Result res;
@@ -115,13 +99,9 @@ int main(int argc, char* argv[])
 				u16 uCategory = (u16)((titleID[i] >> 32) & 0xFFFF);
 				if (uCategory==0x8004 || uCategory==0x8005 || uCategory==0x800F || uCategory==0x8015 ) {
 					printf("Found %016llx...",titleID[i]);
-					if (!isBlacklisted(titleID[i])) {
-						printf("Added\n");
-						dsiTitle[title_count] = titleID[i];
-						title_count+=1;
-					}else{
-						printf("System App\n");
-					}
+					printf("Added\n");
+					dsiTitle[title_count] = titleID[i];
+					title_count+=1;
 				}			
 			}
 		}

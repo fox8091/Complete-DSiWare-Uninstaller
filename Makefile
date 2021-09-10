@@ -10,7 +10,7 @@ endif
 TOPDIR ?= $(CURDIR)
 include $(DEVKITARM)/3ds_rules
 
-APP_TITLE = DSiWare Uninstaller
+APP_TITLE = Complete DSiWare Uninstaller
 APP_DESCRIPTION = Uninstall all DSiWare titles
 APP_AUTHOR = RandalHoffman
 
@@ -36,7 +36,7 @@ APP_AUTHOR = RandalHoffman
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-TARGET		:=	DSiWareUninstaller
+TARGET		:=	CompleteDSiWareUninstaller
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
